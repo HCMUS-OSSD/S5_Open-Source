@@ -1,0 +1,1 @@
+/opt/lampp/htdocs/opensource/lib/web/mage/gallery/gallery.js

@@ -1,0 +1,1 @@
+/opt/lampp/htdocs/opensource/vendor/magento/module-checkout/view/frontend/web/js/sidebar.js

@@ -1,0 +1,1 @@
+/opt/lampp/htdocs/opensource/lib/web/magnifier/magnifier.js

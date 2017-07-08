@@ -1,0 +1,1 @@
+/opt/lampp/htdocs/opensource/lib/web/jquery/fileUploader/jquery.fileupload.js
