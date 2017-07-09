@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/jquery/fileUploader/jquery.iframe-transport.js
+/var/www/html/magento/lib/web/jquery/fileUploader/jquery.iframe-transport.js

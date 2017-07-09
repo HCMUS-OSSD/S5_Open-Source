@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
 namespace Magento\CatalogSearch\Model\Layer\Search\Plugin;
@@ -41,10 +41,6 @@ class CollectionFilter
         Category $category
     ) {
         $proceed($collection, $category);
-        /** @var \Magento\Search\Model\Query $query */
-        $query = $this->queryFactory->get();
-        if (!$query->isQueryTextShort()) {
-            $collection->addSearchFilter($query->getQueryText());
-        }
+        $collection->addSearchFilter($this->queryFactory->get()->getQueryText());
     }
 }

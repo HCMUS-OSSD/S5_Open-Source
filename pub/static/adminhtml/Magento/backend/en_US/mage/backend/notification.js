@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/mage/backend/notification.js
+/var/www/html/magento/lib/web/mage/backend/notification.js

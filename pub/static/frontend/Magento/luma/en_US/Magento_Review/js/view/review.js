@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/vendor/magento/module-review/view/frontend/web/js/view/review.js
+/var/www/html/magento/vendor/magento/module-review/view/frontend/web/js/view/review.js

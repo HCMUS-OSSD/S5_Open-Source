@@ -2,7 +2,8 @@
 namespace Magento\CatalogInventory\Model\Quote\Item\QuantityValidator\Initializer\Option;
 
 /**
- * Interceptor class for @see \Magento\CatalogInventory\Model\Quote\Item\QuantityValidator\Initializer\Option
+ * Interceptor class for @see
+ * \Magento\CatalogInventory\Model\Quote\Item\QuantityValidator\Initializer\Option
  */
 class Interceptor extends \Magento\CatalogInventory\Model\Quote\Item\QuantityValidator\Initializer\Option implements \Magento\Framework\Interception\InterceptorInterface
 {

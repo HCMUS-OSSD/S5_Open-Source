@@ -51,7 +51,8 @@ class ProductExtension extends \Magento\Framework\Api\AbstractSimpleObject imple
     }
 
     /**
-     * @param \Magento\Downloadable\Api\Data\SampleInterface[] $downloadableProductSamples
+     * @param \Magento\Downloadable\Api\Data\SampleInterface[]
+     * $downloadableProductSamples
      * @return $this
      */
     public function setDownloadableProductSamples($downloadableProductSamples)
@@ -72,7 +73,7 @@ class ProductExtension extends \Magento\Framework\Api\AbstractSimpleObject imple
      * @param \Magento\CatalogInventory\Api\Data\StockItemInterface $stockItem
      * @return $this
      */
-    public function setStockItem(\Magento\CatalogInventory\Api\Data\StockItemInterface $stockItem)
+    public function setStockItem($stockItem)
     {
         $this->setData('stock_item', $stockItem);
         return $this;
@@ -87,7 +88,8 @@ class ProductExtension extends \Magento\Framework\Api\AbstractSimpleObject imple
     }
 
     /**
-     * @param \Magento\ConfigurableProduct\Api\Data\OptionInterface[] $configurableProductOptions
+     * @param \Magento\ConfigurableProduct\Api\Data\OptionInterface[]
+     * $configurableProductOptions
      * @return $this
      */
     public function setConfigurableProductOptions($configurableProductOptions)

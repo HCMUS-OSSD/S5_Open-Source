@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/jquery/jquery.tabs.js
+/var/www/html/magento/lib/web/jquery/jquery.tabs.js

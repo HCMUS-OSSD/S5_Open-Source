@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/requirejs/require.js
+/var/www/html/magento/lib/web/requirejs/require.js

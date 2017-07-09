@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/mage/common.js
+/var/www/html/magento/lib/web/mage/common.js

@@ -1,14 +1,13 @@
 <?php
 /**
  * @api
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
 
 namespace Magento\Mtf\Util\Generate\Factory;
 
 use Magento\Framework\Filesystem\DriverInterface;
-use Magento\Framework\Filesystem\Glob;
 
 /**
  * Class AbstractFactory
@@ -27,9 +26,10 @@ abstract class AbstractFactory
     protected $_checkList = [];
 
     /**
+     * @return mixed
+     */
+    /**
      * Generate Blocks
-     *
-     * @return void
      */
     public function launch()
     {
@@ -156,7 +156,7 @@ abstract class AbstractFactory
 
             $pattern = $this->_getPattern($type, $location);
 
-            $filesIterator = Glob::glob($pattern, Glob::GLOB_BRACE);
+            $filesIterator = glob($pattern, GLOB_BRACE);
 
             foreach ($filesIterator as $filePath) {
                 if (!is_dir($filePath)) {

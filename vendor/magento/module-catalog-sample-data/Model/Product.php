@@ -166,7 +166,7 @@ class Product
     }
 
     /**
-     * @param \Magento\Catalog\Model\Product $product
+     * @param \Magento\Framework\Model\AbstractModel $product
      * @param array $data
      * @return $this
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)

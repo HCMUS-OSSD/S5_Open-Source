@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/jquery/fileUploader/load-image.js
+/var/www/html/magento/lib/web/jquery/fileUploader/load-image.js

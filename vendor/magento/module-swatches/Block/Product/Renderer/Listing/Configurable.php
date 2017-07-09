@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
 namespace Magento\Swatches\Block\Product\Renderer\Listing;
@@ -22,28 +22,12 @@ class Configurable extends \Magento\Swatches\Block\Product\Renderer\Configurable
     }
 
     /**
-     * Produce and return block's html output.
-     *
-     * @return string
-     */
-    protected function _toHtml()
-    {
-        $output = '';
-        if ($this->isProductHasSwatchAttribute()) {
-            $output = parent::_toHtml();
-        }
-
-        return $output;
-    }
-
-    /**
-     * @deprecated
      * @return string
      */
     protected function getHtmlOutput()
     {
         $output = '';
-        if ($this->isProductHasSwatchAttribute()) {
+        if ($this->isProductHasSwatchAttribute) {
             $output = parent::getHtmlOutput();
         }
 
@@ -55,7 +39,6 @@ class Configurable extends \Magento\Swatches\Block\Product\Renderer\Configurable
      */
     protected function getSwatchAttributesData()
     {
-        $result = [];
         $swatchAttributeData = parent::getSwatchAttributesData();
         foreach ($swatchAttributeData as $attributeId => $item) {
             if (!empty($item['used_in_product_listing'])) {

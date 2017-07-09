@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/MutationObserver.js
+/var/www/html/magento/lib/web/MutationObserver.js

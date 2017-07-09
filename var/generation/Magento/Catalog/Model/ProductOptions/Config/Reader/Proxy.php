@@ -53,7 +53,7 @@ class Proxy extends \Magento\Catalog\Model\ProductOptions\Config\Reader implemen
      */
     public function __sleep()
     {
-        return ['_subject', '_isShared', '_instanceName'];
+        return array('_subject', '_isShared');
     }
 
     /**

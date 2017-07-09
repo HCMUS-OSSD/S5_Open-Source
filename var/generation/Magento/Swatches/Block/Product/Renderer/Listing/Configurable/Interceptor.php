@@ -2,16 +2,17 @@
 namespace Magento\Swatches\Block\Product\Renderer\Listing\Configurable;
 
 /**
- * Interceptor class for @see \Magento\Swatches\Block\Product\Renderer\Listing\Configurable
+ * Interceptor class for @see
+ * \Magento\Swatches\Block\Product\Renderer\Listing\Configurable
  */
 class Interceptor extends \Magento\Swatches\Block\Product\Renderer\Listing\Configurable implements \Magento\Framework\Interception\InterceptorInterface
 {
     use \Magento\Framework\Interception\Interceptor;
 
-    public function __construct(\Magento\Catalog\Block\Product\Context $context, \Magento\Framework\Stdlib\ArrayUtils $arrayUtils, \Magento\Framework\Json\EncoderInterface $jsonEncoder, \Magento\ConfigurableProduct\Helper\Data $helper, \Magento\Catalog\Helper\Product $catalogProduct, \Magento\Customer\Helper\Session\CurrentCustomer $currentCustomer, \Magento\Framework\Pricing\PriceCurrencyInterface $priceCurrency, \Magento\ConfigurableProduct\Model\ConfigurableAttributeData $configurableAttributeData, \Magento\Swatches\Helper\Data $swatchHelper, \Magento\Swatches\Helper\Media $swatchMediaHelper, array $data = array(), \Magento\Swatches\Model\SwatchAttributesProvider $swatchAttributesProvider = null)
+    public function __construct(\Magento\Catalog\Block\Product\Context $context, \Magento\Framework\Stdlib\ArrayUtils $arrayUtils, \Magento\Framework\Json\EncoderInterface $jsonEncoder, \Magento\ConfigurableProduct\Helper\Data $helper, \Magento\Catalog\Helper\Product $catalogProduct, \Magento\Customer\Helper\Session\CurrentCustomer $currentCustomer, \Magento\Framework\Pricing\PriceCurrencyInterface $priceCurrency, \Magento\ConfigurableProduct\Model\ConfigurableAttributeData $configurableAttributeData, \Magento\Swatches\Helper\Data $swatchHelper, \Magento\Swatches\Helper\Media $swatchMediaHelper, array $data = array())
     {
         $this->___init();
-        parent::__construct($context, $arrayUtils, $jsonEncoder, $helper, $catalogProduct, $currentCustomer, $priceCurrency, $configurableAttributeData, $swatchHelper, $swatchMediaHelper, $data, $swatchAttributesProvider);
+        parent::__construct($context, $arrayUtils, $jsonEncoder, $helper, $catalogProduct, $currentCustomer, $priceCurrency, $configurableAttributeData, $swatchHelper, $swatchMediaHelper, $data);
     }
 
     /**
@@ -24,19 +25,6 @@ class Interceptor extends \Magento\Swatches\Block\Product\Renderer\Listing\Confi
             return parent::getJsonConfig();
         } else {
             return $this->___callPlugins('getJsonConfig', func_get_args(), $pluginInfo);
-        }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getCacheKey()
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getCacheKey');
-        if (!$pluginInfo) {
-            return parent::getCacheKey();
-        } else {
-            return $this->___callPlugins('getCacheKey', func_get_args(), $pluginInfo);
         }
     }
 
@@ -102,19 +90,6 @@ class Interceptor extends \Magento\Swatches\Block\Product\Renderer\Listing\Confi
             return parent::getMediaCallback();
         } else {
             return $this->___callPlugins('getMediaCallback', func_get_args(), $pluginInfo);
-        }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getIdentities()
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getIdentities');
-        if (!$pluginInfo) {
-            return parent::getIdentities();
-        } else {
-            return $this->___callPlugins('getIdentities', func_get_args(), $pluginInfo);
         }
     }
 
@@ -1064,6 +1039,19 @@ class Interceptor extends \Magento\Swatches\Block\Product\Renderer\Listing\Confi
             return parent::getNameInLayout();
         } else {
             return $this->___callPlugins('getNameInLayout', func_get_args(), $pluginInfo);
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getCacheKey()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getCacheKey');
+        if (!$pluginInfo) {
+            return parent::getCacheKey();
+        } else {
+            return $this->___callPlugins('getCacheKey', func_get_args(), $pluginInfo);
         }
     }
 

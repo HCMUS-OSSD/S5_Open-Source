@@ -1,5 +1,3 @@
-Hello, My nam is Huan.
-I am a web developer.
-Today, I wil teach how to
-install magento in ubuntu
-Step 1
+coverage_clover: clover.xml
+json_path: coveralls-upload.json
+src_dir: src

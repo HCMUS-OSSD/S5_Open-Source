@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/jquery/jquery-ui-1.9.2.js
+/var/www/html/magento/lib/web/jquery/jquery-ui-1.9.2.js

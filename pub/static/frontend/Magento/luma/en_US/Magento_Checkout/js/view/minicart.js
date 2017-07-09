@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/vendor/magento/module-checkout/view/frontend/web/js/view/minicart.js
+/var/www/html/magento/vendor/magento/module-checkout/view/frontend/web/js/view/minicart.js

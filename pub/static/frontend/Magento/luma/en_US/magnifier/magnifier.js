@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/magnifier/magnifier.js
+/var/www/html/magento/lib/web/magnifier/magnifier.js

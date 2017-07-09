@@ -65,17 +65,4 @@ class Interceptor extends \Magento\Checkout\Model\DefaultConfigProvider implemen
             return $this->___callPlugins('pageNotFoundUrl', func_get_args(), $pluginInfo);
         }
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getDefaultSuccessPageUrl()
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getDefaultSuccessPageUrl');
-        if (!$pluginInfo) {
-            return parent::getDefaultSuccessPageUrl();
-        } else {
-            return $this->___callPlugins('getDefaultSuccessPageUrl', func_get_args(), $pluginInfo);
-        }
-    }
 }

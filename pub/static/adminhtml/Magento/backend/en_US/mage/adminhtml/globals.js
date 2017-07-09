@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/mage/adminhtml/globals.js
+/var/www/html/magento/lib/web/mage/adminhtml/globals.js

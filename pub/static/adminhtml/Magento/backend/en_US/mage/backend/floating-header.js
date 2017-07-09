@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/mage/backend/floating-header.js
+/var/www/html/magento/lib/web/mage/backend/floating-header.js

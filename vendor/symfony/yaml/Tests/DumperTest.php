@@ -11,11 +11,10 @@
 
 namespace Symfony\Component\Yaml\Tests;
 
-use PHPUnit\Framework\TestCase;
 use Symfony\Component\Yaml\Parser;
 use Symfony\Component\Yaml\Dumper;
 
-class DumperTest extends TestCase
+class DumperTest extends \PHPUnit_Framework_TestCase
 {
     protected $parser;
     protected $dumper;

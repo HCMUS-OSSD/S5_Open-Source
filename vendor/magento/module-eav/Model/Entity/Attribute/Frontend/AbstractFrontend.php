@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
 
@@ -11,29 +11,8 @@
  */
 namespace Magento\Eav\Model\Entity\Attribute\Frontend;
 
-use Magento\Framework\App\CacheInterface;
-use Magento\Store\Api\StoreResolverInterface;
-use Magento\Framework\App\ObjectManager;
-use Magento\Eav\Model\Cache\Type as CacheType;
-use Magento\Eav\Model\Entity\Attribute;
-
 abstract class AbstractFrontend implements \Magento\Eav\Model\Entity\Attribute\Frontend\FrontendInterface
 {
-    /**
-     * @var CacheInterface
-     */
-    private $cache;
-
-    /**
-     * @var StoreResolverInterface
-     */
-    private $storeResolver;
-
-    /**
-     * @var array
-     */
-    private $cacheTags;
-
     /**
      * Reference to the attribute instance
      *
@@ -48,24 +27,11 @@ abstract class AbstractFrontend implements \Magento\Eav\Model\Entity\Attribute\F
 
     /**
      * @param \Magento\Eav\Model\Entity\Attribute\Source\BooleanFactory $attrBooleanFactory
-     * @param CacheInterface $cache
-     * @param StoreResolverInterface $storeResolver
-     * @param array $cacheTags
      * @codeCoverageIgnore
      */
-    public function __construct(
-        \Magento\Eav\Model\Entity\Attribute\Source\BooleanFactory $attrBooleanFactory,
-        CacheInterface $cache = null,
-        StoreResolverInterface $storeResolver = null,
-        array $cacheTags = [
-        CacheType::CACHE_TAG,
-        Attribute::CACHE_TAG,
-        ]
-    ) {
+    public function __construct(\Magento\Eav\Model\Entity\Attribute\Source\BooleanFactory $attrBooleanFactory)
+    {
         $this->_attrBooleanFactory = $attrBooleanFactory;
-        $this->cache = $cache ?: ObjectManager::getInstance()->get(CacheInterface::class);
-        $this->storeResolver = $storeResolver ?: ObjectManager::getInstance()->get(StoreResolverInterface::class);
-        $this->cacheTags = $cacheTags;
     }
 
     /**
@@ -250,21 +216,7 @@ abstract class AbstractFrontend implements \Magento\Eav\Model\Entity\Attribute\F
      */
     public function getSelectOptions()
     {
-        $cacheKey = 'attribute-navigation-option-' .
-            $this->getAttribute()->getAttributeCode() . '-' .
-            $this->storeResolver->getCurrentStoreId();
-        $optionString = $this->cache->load($cacheKey);
-        if (false === $optionString) {
-            $options = $this->getAttribute()->getSource()->getAllOptions();
-            $this->cache->save(
-                json_encode($options),
-                $cacheKey,
-                $this->cacheTags
-            );
-        } else {
-            $options = json_decode($optionString, true);
-        }
-        return $options;
+        return $this->getAttribute()->getSource()->getAllOptions();
     }
 
     /**

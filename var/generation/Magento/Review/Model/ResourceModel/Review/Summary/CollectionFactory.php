@@ -2,7 +2,8 @@
 namespace Magento\Review\Model\ResourceModel\Review\Summary;
 
 /**
- * Factory class for @see \Magento\Review\Model\ResourceModel\Review\Summary\Collection
+ * Factory class for @see
+ * \Magento\Review\Model\ResourceModel\Review\Summary\Collection
  */
 class CollectionFactory
 {

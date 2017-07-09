@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/underscore.js
+/var/www/html/magento/lib/web/underscore.js

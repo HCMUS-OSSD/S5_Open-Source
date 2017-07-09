@@ -53,7 +53,7 @@ class Proxy extends \Magento\Sales\Model\Config\Reader implements \Magento\Frame
      */
     public function __sleep()
     {
-        return ['_subject', '_isShared', '_instanceName'];
+        return array('_subject', '_isShared');
     }
 
     /**

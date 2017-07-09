@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/vendor/magento/module-customer/view/frontend/web/js/view/customer.js
+/var/www/html/magento/vendor/magento/module-customer/view/frontend/web/js/view/customer.js

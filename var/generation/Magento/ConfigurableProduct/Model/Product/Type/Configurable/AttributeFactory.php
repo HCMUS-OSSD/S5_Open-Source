@@ -2,7 +2,8 @@
 namespace Magento\ConfigurableProduct\Model\Product\Type\Configurable;
 
 /**
- * Factory class for @see \Magento\ConfigurableProduct\Model\Product\Type\Configurable\Attribute
+ * Factory class for @see
+ * \Magento\ConfigurableProduct\Model\Product\Type\Configurable\Attribute
  */
 class AttributeFactory
 {

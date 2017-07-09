@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/vendor/magento/module-captcha/view/frontend/web/js/view/checkout/defaultCaptcha.js
+/var/www/html/magento/vendor/magento/module-captcha/view/frontend/web/js/view/checkout/defaultCaptcha.js

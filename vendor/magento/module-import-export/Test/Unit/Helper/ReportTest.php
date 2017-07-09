@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
 namespace Magento\ImportExport\Test\Unit\Helper;
@@ -45,7 +45,7 @@ class ReportTest extends \PHPUnit_Framework_TestCase
     /**
      * Set up
      */
-    protected function setUp()
+    public function setUp()
     {
         $this->context = $this->getMock(
             'Magento\Framework\App\Helper\Context',

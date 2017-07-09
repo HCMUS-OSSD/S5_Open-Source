@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/vendor/magento/module-catalog/view/frontend/web/product/view/validation.js
+/var/www/html/magento/vendor/magento/module-catalog/view/frontend/web/product/view/validation.js

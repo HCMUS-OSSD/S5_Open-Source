@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/vendor/magento/theme-frontend-blank/web/js/responsive.js
+/var/www/html/magento/vendor/magento/theme-frontend-blank/web/js/responsive.js

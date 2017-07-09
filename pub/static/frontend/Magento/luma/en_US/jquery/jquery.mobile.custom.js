@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/jquery/jquery.mobile.custom.js
+/var/www/html/magento/lib/web/jquery/jquery.mobile.custom.js

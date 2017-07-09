@@ -2,7 +2,8 @@
 namespace Magento\ConfigurableProduct\Api\Data;
 
 /**
- * Factory class for @see \Magento\ConfigurableProduct\Api\Data\OptionValueInterface
+ * Factory class for @see
+ * \Magento\ConfigurableProduct\Api\Data\OptionValueInterface
  */
 class OptionValueInterfaceFactory
 {

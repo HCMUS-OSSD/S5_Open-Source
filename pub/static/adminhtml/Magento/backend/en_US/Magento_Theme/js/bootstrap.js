@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/vendor/magento/module-theme/view/adminhtml/web/js/bootstrap.js
+/var/www/html/magento/vendor/magento/module-theme/view/adminhtml/web/js/bootstrap.js

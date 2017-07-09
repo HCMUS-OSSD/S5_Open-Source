@@ -2,7 +2,8 @@
 namespace Magento\Quote\Model\ResourceModel\Quote\Address\Rate;
 
 /**
- * Factory class for @see \Magento\Quote\Model\ResourceModel\Quote\Address\Rate\Collection
+ * Factory class for @see
+ * \Magento\Quote\Model\ResourceModel\Quote\Address\Rate\Collection
  */
 class CollectionFactory
 {

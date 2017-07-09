@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/mage/utils/objects.js
+/var/www/html/magento/lib/web/mage/utils/objects.js

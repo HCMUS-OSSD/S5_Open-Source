@@ -2,7 +2,8 @@
 namespace Magento\CatalogInventory\Model\ResourceModel\Stock;
 
 /**
- * Factory class for @see \Magento\CatalogInventory\Model\ResourceModel\Stock\Status
+ * Factory class for @see
+ * \Magento\CatalogInventory\Model\ResourceModel\Stock\Status
  */
 class StatusFactory
 {

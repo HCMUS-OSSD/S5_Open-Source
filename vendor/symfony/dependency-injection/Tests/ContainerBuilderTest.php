@@ -14,13 +14,12 @@ namespace Symfony\Component\DependencyInjection\Tests;
 require_once __DIR__.'/Fixtures/includes/classes.php';
 require_once __DIR__.'/Fixtures/includes/ProjectExtension.php';
 
-use PHPUnit\Framework\TestCase;
+use Symfony\Bridge\PhpUnit\ErrorAssert;
 use Symfony\Component\Config\Resource\ResourceInterface;
 use Symfony\Component\DependencyInjection\Alias;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\DefinitionDecorator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 use Symfony\Component\DependencyInjection\Exception\InactiveScopeException;
 use Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException;
@@ -30,10 +29,9 @@ use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 use Symfony\Component\DependencyInjection\Scope;
 use Symfony\Component\Config\Resource\FileResource;
-use Symfony\Component\DependencyInjection\Tests\Fixtures\CustomDefinition;
 use Symfony\Component\ExpressionLanguage\Expression;
 
-class ContainerBuilderTest extends TestCase
+class ContainerBuilderTest extends \PHPUnit_Framework_TestCase
 {
     public function testDefinitions()
     {
@@ -62,17 +60,15 @@ class ContainerBuilderTest extends TestCase
         }
     }
 
-    /**
-     * @group legacy
-     * @expectedDeprecation The "deprecated_foo" service is deprecated. You should stop using it, as it will soon be removed.
-     */
     public function testCreateDeprecatedService()
     {
-        $definition = new Definition('stdClass');
-        $definition->setDeprecated(true);
+        ErrorAssert::assertDeprecationsAreTriggered('The "deprecated_foo" service is deprecated. You should stop using it, as it will soon be removed.', function () {
+            $definition = new Definition('stdClass');
+            $definition->setDeprecated(true);
 
-        $builder = new ContainerBuilder();
-        $builder->createService($definition, 'deprecated_foo');
+            $builder = new ContainerBuilder();
+            $builder->createService($definition, 'deprecated_foo');
+        });
     }
 
     public function testRegister()
@@ -116,7 +112,7 @@ class ContainerBuilderTest extends TestCase
         try {
             @$builder->get('baz');
             $this->fail('->get() throws a ServiceCircularReferenceException if the service has a circular reference to itself');
-        } catch (ServiceCircularReferenceException $e) {
+        } catch (\Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException $e) {
             $this->assertEquals('Circular reference detected for service "baz", path: "baz".', $e->getMessage(), '->get() throws a LogicException if the service has a circular reference to itself');
         }
 
@@ -259,24 +255,12 @@ class ContainerBuilderTest extends TestCase
         $this->assertSame($foo, $builder->get('alias'), '->set() replaces an existing alias');
     }
 
-    public function testAliasesKeepInvalidBehavior()
-    {
-        $builder = new ContainerBuilder();
-
-        $aliased = new Definition('stdClass');
-        $aliased->addMethodCall('setBar', array(new Reference('bar', ContainerInterface::IGNORE_ON_INVALID_REFERENCE)));
-        $builder->setDefinition('aliased', $aliased);
-        $builder->setAlias('alias', 'aliased');
-
-        $this->assertEquals(new \stdClass(), $builder->get('alias'));
-    }
-
     public function testAddGetCompilerPass()
     {
         $builder = new ContainerBuilder();
         $builder->setResourceTracking(false);
         $builderCompilerPasses = $builder->getCompiler()->getPassConfig()->getPasses();
-        $builder->addCompilerPass($this->getMockBuilder('Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface')->getMock());
+        $builder->addCompilerPass($this->getMock('Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface'));
 
         $this->assertCount(count($builder->getCompiler()->getPassConfig()->getPasses()) - 1, $builderCompilerPasses);
     }
@@ -335,9 +319,6 @@ class ContainerBuilderTest extends TestCase
         $this->assertTrue($builder->get('baz')->called, '->createService() uses another service as factory');
     }
 
-    /**
-     * @group legacy
-     */
     public function testLegacyCreateServiceFactory()
     {
         $builder = new ContainerBuilder();
@@ -354,9 +335,6 @@ class ContainerBuilderTest extends TestCase
         $this->assertEquals(array('foo' => 'bar', 'bar' => 'foo', $builder->get('bar')), $builder->get('foo1')->arguments, '->createService() passes the arguments to the factory method');
     }
 
-    /**
-     * @group legacy
-     */
     public function testLegacyCreateServiceFactoryService()
     {
         $builder = new ContainerBuilder();
@@ -449,28 +427,6 @@ class ContainerBuilderTest extends TestCase
         $this->assertEquals($builder->get('foo'), $builder->resolveServices(new Reference('foo')), '->resolveServices() resolves service references to service instances');
         $this->assertEquals(array('foo' => array('foo', $builder->get('foo'))), $builder->resolveServices(array('foo' => array('foo', new Reference('foo')))), '->resolveServices() resolves service references to service instances in nested arrays');
         $this->assertEquals($builder->get('foo'), $builder->resolveServices(new Expression('service("foo")')), '->resolveServices() resolves expressions');
-    }
-
-    /**
-     * @expectedException \Symfony\Component\DependencyInjection\Exception\RuntimeException
-     * @expectedExceptionMessage Constructing service "foo" from a parent definition is not supported at build time.
-     */
-    public function testResolveServicesWithDecoratedDefinition()
-    {
-        $builder = new ContainerBuilder();
-        $builder->setDefinition('grandpa', new Definition('stdClass'));
-        $builder->setDefinition('parent', new DefinitionDecorator('grandpa'));
-        $builder->setDefinition('foo', new DefinitionDecorator('parent'));
-
-        $builder->get('foo');
-    }
-
-    public function testResolveServicesWithCustomDefinitionClass()
-    {
-        $builder = new ContainerBuilder();
-        $builder->setDefinition('foo', new CustomDefinition('stdClass'));
-
-        $this->assertInstanceOf('stdClass', $builder->get('foo'));
     }
 
     public function testMerge()
@@ -659,13 +615,13 @@ class ContainerBuilderTest extends TestCase
         $container->registerExtension($extension = new \ProjectExtension());
         $this->assertTrue($container->getExtension('project') === $extension, '->registerExtension() registers an extension');
 
-        $this->{method_exists($this, $_ = 'expectException') ? $_ : 'setExpectedException'}('LogicException');
+        $this->setExpectedException('LogicException');
         $container->getExtension('no_registered');
     }
 
     public function testRegisteredButNotLoadedExtension()
     {
-        $extension = $this->getMockBuilder('Symfony\\Component\\DependencyInjection\\Extension\\ExtensionInterface')->getMock();
+        $extension = $this->getMock('Symfony\\Component\\DependencyInjection\\Extension\\ExtensionInterface');
         $extension->expects($this->once())->method('getAlias')->will($this->returnValue('project'));
         $extension->expects($this->never())->method('load');
 
@@ -677,7 +633,7 @@ class ContainerBuilderTest extends TestCase
 
     public function testRegisteredAndLoadedExtension()
     {
-        $extension = $this->getMockBuilder('Symfony\\Component\\DependencyInjection\\Extension\\ExtensionInterface')->getMock();
+        $extension = $this->getMock('Symfony\\Component\\DependencyInjection\\Extension\\ExtensionInterface');
         $extension->expects($this->exactly(2))->method('getAlias')->will($this->returnValue('project'));
         $extension->expects($this->once())->method('load')->with(array(array('foo' => 'bar')));
 
@@ -718,12 +674,14 @@ class ContainerBuilderTest extends TestCase
         $container->set('a', new \stdClass());
     }
 
+    /**
+     * @expectedException \BadMethodCallException
+     */
     public function testThrowsExceptionWhenAddServiceOnAFrozenContainer()
     {
         $container = new ContainerBuilder();
         $container->compile();
-        $container->set('a', $foo = new \stdClass());
-        $this->assertSame($foo, $container->get('a'));
+        $container->set('a', new \stdClass());
     }
 
     public function testNoExceptionWhenSetSyntheticServiceOnAFrozenContainer()
@@ -837,11 +795,12 @@ class ContainerBuilderTest extends TestCase
     {
         $loader = new ClosureLoader($container = new ContainerBuilder());
         $loader->load(function (ContainerBuilder $container) {
-            $container->set('a', new \BazClass());
-            $definition = new Definition('BazClass');
-            $definition->setLazy(true);
-            $container->setDefinition('a', $definition);
-        });
+                $container->set('a', new \BazClass());
+                $definition = new Definition('BazClass');
+                $definition->setLazy(true);
+                $container->setDefinition('a', $definition);
+            }
+        );
 
         $container->setResourceTracking(true);
 
@@ -863,20 +822,6 @@ class ContainerBuilderTest extends TestCase
         }
 
         $this->assertTrue($classInList);
-    }
-
-    public function testInitializePropertiesBeforeMethodCalls()
-    {
-        $container = new ContainerBuilder();
-        $container->register('foo', 'stdClass');
-        $container->register('bar', 'MethodCallClass')
-            ->setProperty('simple', 'bar')
-            ->setProperty('complex', new Reference('foo'))
-            ->addMethodCall('callMe');
-
-        $container->compile();
-
-        $this->assertTrue($container->get('bar')->callPassed(), '->compile() initializes properties before method calls');
     }
 
     public function testAutowiring()

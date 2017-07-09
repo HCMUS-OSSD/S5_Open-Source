@@ -2,7 +2,8 @@
 namespace Magento\Catalog\Model\Product\Attribute\Backend\Price;
 
 /**
- * Interceptor class for @see \Magento\Catalog\Model\Product\Attribute\Backend\Price
+ * Interceptor class for @see
+ * \Magento\Catalog\Model\Product\Attribute\Backend\Price
  */
 class Interceptor extends \Magento\Catalog\Model\Product\Attribute\Backend\Price implements \Magento\Framework\Interception\InterceptorInterface
 {

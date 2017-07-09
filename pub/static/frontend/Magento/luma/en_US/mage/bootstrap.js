@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/mage/bootstrap.js
+/var/www/html/magento/lib/web/mage/bootstrap.js

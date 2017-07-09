@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
 namespace Magento\Catalog\Model\Product\Type;
@@ -70,10 +70,10 @@ class AbstractTypeTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetSetAttributes()
     {
-        $repository = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create(
-            'Magento\Catalog\Model\ProductRepository'
+        $product = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create(
+            'Magento\Catalog\Model\Product'
         );
-        $product = $repository->get('simple');
+        $product->load(1);
         // fixture
         $this->assertArrayNotHasKey('_cache_instance_product_set_attributes', $product->getData());
         $attributes = $this->_model->getSetAttributes($product);
@@ -89,8 +89,8 @@ class AbstractTypeTest extends \PHPUnit_Framework_TestCase
                 $isTypeExists = true;
             }
         }
-        /* possibility of fatal error if passing null instead of product */
         $this->assertTrue($isTypeExists);
+        /* possibility of fatal error if passing null instead of product */
     }
 
     public function testAttributesCompare()
@@ -124,13 +124,7 @@ class AbstractTypeTest extends \PHPUnit_Framework_TestCase
             'catalog_product',
             'sku'
         );
-        $this->assertSame(
-            $sku->getAttributeId(),
-            $this->_model->getAttributeById(
-                $sku->getId(),
-                $product
-            )->getAttributeId()
-        );
+        $this->assertSame($sku, $this->_model->getAttributeById($sku->getId(), $product));
     }
 
     /**
@@ -154,7 +148,7 @@ class AbstractTypeTest extends \PHPUnit_Framework_TestCase
         );
         $this->assertTrue($this->_model->isSalable($product));
 
-        $product->loadByAttribute('sku', 'simple');
+        $product->load(1);
         // fixture
         $this->assertTrue((bool)$this->_model->isSalable($product));
     }
@@ -191,13 +185,12 @@ class AbstractTypeTest extends \PHPUnit_Framework_TestCase
      */
     public function testPrepareForCartOptionsException()
     {
-        $repository = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create(
-            'Magento\Catalog\Model\ProductRepository'
+        $product = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create(
+            'Magento\Catalog\Model\Product'
         );
-        $product = $repository->get('simple');
+        $product->load(1);
         // fixture
-
-        $this->assertContains(
+        $this->assertEquals(
             'Please specify product\'s required option(s).',
             $this->_model->prepareForCart(new \Magento\Framework\DataObject(), $product)
         );
@@ -227,10 +220,10 @@ class AbstractTypeTest extends \PHPUnit_Framework_TestCase
      */
     public function testCheckProductBuyStateException()
     {
-        $repository = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create(
-            'Magento\Catalog\Model\ProductRepository'
+        $product = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create(
+            'Magento\Catalog\Model\Product'
         );
-        $product = $repository->get('simple');
+        $product->load(1);
         // fixture
         $this->_model->checkProductBuyState($product);
     }
@@ -249,11 +242,11 @@ class AbstractTypeTest extends \PHPUnit_Framework_TestCase
         $product->load(1);
         // fixture
         $product->addCustomOption('info_buyRequest', serialize(new \Magento\Framework\DataObject(['qty' => 2])));
-        foreach ($product->getOptions() as $option) {
+        foreach ($product->getOptions() as $id => $option) {
             if ('field' == $option->getType()) {
-                $product->addCustomOption('option_ids', $option->getId());
+                $product->addCustomOption('option_ids', $id);
                 $quoteOption = clone $option;
-                $product->addCustomOption("option_{$option->getId()}", $quoteOption->getValue());
+                $product->addCustomOption("option_{$id}", $quoteOption->getValue());
 
                 $optionArr = $this->_model->getOrderOptions($product);
                 $this->assertArrayHasKey('info_buyRequest', $optionArr);
@@ -267,7 +260,7 @@ class AbstractTypeTest extends \PHPUnit_Framework_TestCase
                 $this->assertArrayHasKey('option_type', $renderedOption);
                 $this->assertArrayHasKey('option_value', $renderedOption);
                 $this->assertArrayHasKey('custom_view', $renderedOption);
-                $this->assertGreaterThan(0, $renderedOption['option_id']);
+                $this->assertEquals($id, $renderedOption['option_id']);
                 break;
             }
         }
@@ -280,10 +273,11 @@ class AbstractTypeTest extends \PHPUnit_Framework_TestCase
      */
     public function testBeforeSave()
     {
-        $repository = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create(
-            'Magento\Catalog\Model\ProductRepository'
+        /** @var $product \Magento\Catalog\Model\Product */
+        $product = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create(
+            'Magento\Catalog\Model\Product'
         );
-        $product = $repository->get('simple');
+        $product->load(1);
         // fixture
         $product->setData('attribute_with_invalid_applyto', 'value');
         $this->_model->beforeSave($product);
@@ -296,10 +290,10 @@ class AbstractTypeTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetSku()
     {
-        $repository = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create(
-            'Magento\Catalog\Model\ProductRepository'
+        $product = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create(
+            'Magento\Catalog\Model\Product'
         );
-        $product = $repository->get('simple');
+        $product->load(1);
         // fixture
         $this->assertEquals('simple', $this->_model->getSku($product));
     }
@@ -319,11 +313,11 @@ class AbstractTypeTest extends \PHPUnit_Framework_TestCase
         // fixture
         $this->assertEquals('simple', $this->_model->getOptionSku($product));
 
-        foreach ($product->getOptions() as $option) {
+        foreach ($product->getOptions() as $id => $option) {
             if ('field' == $option->getType()) {
-                $product->addCustomOption('option_ids', $option->getId());
+                $product->addCustomOption('option_ids', $id);
                 $quoteOption = clone $option;
-                $product->addCustomOption("option_{$option->getId()}", $quoteOption);
+                $product->addCustomOption("option_{$id}", $quoteOption);
 
                 $this->assertEquals('simple-1-text', $this->_model->getOptionSku($product));
                 break;

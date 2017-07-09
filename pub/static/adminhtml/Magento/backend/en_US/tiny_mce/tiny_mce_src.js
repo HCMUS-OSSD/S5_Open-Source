@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/tiny_mce/tiny_mce_src.js
+/var/www/html/magento/lib/web/tiny_mce/tiny_mce_src.js

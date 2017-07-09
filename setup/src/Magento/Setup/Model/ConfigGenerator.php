@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
 
@@ -59,6 +59,23 @@ class ConfigGenerator
     {
         $this->random = $random;
         $this->deploymentConfig = $deploymentConfig;
+    }
+
+    /**
+     * Creates install segment config data
+     *
+     * @deprecated
+     *
+     * @return ConfigData
+     */
+    public function createInstallConfig()
+    {
+        $configData = new ConfigData(ConfigFilePool::APP_ENV);
+
+        if ($this->deploymentConfig->get(ConfigOptionsListConstants::CONFIG_PATH_INSTALL_DATE) === null) {
+            $configData->set(ConfigOptionsListConstants::CONFIG_PATH_INSTALL_DATE, date('r'));
+        }
+        return $configData;
     }
 
     /**
@@ -220,9 +237,7 @@ class ConfigGenerator
     public function createModeConfig()
     {
         $configData = new ConfigData(ConfigFilePool::APP_ENV);
-        if ($this->deploymentConfig->get(State::PARAM_MODE) === null) {
-            $configData->set(State::PARAM_MODE, State::MODE_DEFAULT);
-        }
+        $configData->set(State::PARAM_MODE, State::MODE_DEFAULT);
         return $configData;
     }
 

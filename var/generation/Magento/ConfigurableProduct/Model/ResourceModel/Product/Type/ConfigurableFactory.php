@@ -2,7 +2,8 @@
 namespace Magento\ConfigurableProduct\Model\ResourceModel\Product\Type;
 
 /**
- * Factory class for @see \Magento\ConfigurableProduct\Model\ResourceModel\Product\Type\Configurable
+ * Factory class for @see
+ * \Magento\ConfigurableProduct\Model\ResourceModel\Product\Type\Configurable
  */
 class ConfigurableFactory
 {
@@ -36,7 +37,8 @@ class ConfigurableFactory
      * Create class instance with specified parameters
      *
      * @param array $data
-     * @return \Magento\ConfigurableProduct\Model\ResourceModel\Product\Type\Configurable
+     * @return
+     * \Magento\ConfigurableProduct\Model\ResourceModel\Product\Type\Configurable
      */
     public function create(array $data = array())
     {

@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/mage/requirejs/mixins.js
+/var/www/html/magento/lib/web/mage/requirejs/mixins.js

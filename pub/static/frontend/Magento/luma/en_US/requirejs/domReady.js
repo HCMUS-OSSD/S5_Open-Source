@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/requirejs/domReady.js
+/var/www/html/magento/lib/web/requirejs/domReady.js

@@ -2,7 +2,8 @@
 namespace Magento\Quote\Model\ResourceModel\Quote\Item\Option;
 
 /**
- * Factory class for @see \Magento\Quote\Model\ResourceModel\Quote\Item\Option\Collection
+ * Factory class for @see
+ * \Magento\Quote\Model\ResourceModel\Quote\Item\Option\Collection
  */
 class CollectionFactory
 {

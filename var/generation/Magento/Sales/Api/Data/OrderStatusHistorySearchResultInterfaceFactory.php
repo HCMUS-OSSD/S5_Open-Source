@@ -2,7 +2,8 @@
 namespace Magento\Sales\Api\Data;
 
 /**
- * Factory class for @see \Magento\Sales\Api\Data\OrderStatusHistorySearchResultInterface
+ * Factory class for @see
+ * \Magento\Sales\Api\Data\OrderStatusHistorySearchResultInterface
  */
 class OrderStatusHistorySearchResultInterfaceFactory
 {

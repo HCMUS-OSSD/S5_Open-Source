@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/jquery/jquery-migrate.js
+/var/www/html/magento/lib/web/jquery/jquery-migrate.js

@@ -2,11 +2,11 @@
 return array (
   'backend' => 
   array (
-    'frontName' => 'admin',
+    'frontName' => 'admin_egrkud',
   ),
   'crypt' => 
   array (
-    'key' => '47a51e846f276063d301e4789f31c1de',
+    'key' => 'f799ee23eeee41ada017c1e8a1ae3149',
   ),
   'session' => 
   array (
@@ -19,10 +19,13 @@ return array (
     array (
       'default' => 
       array (
-        'host' => '127.0.0.1',
+        'host' => 'localhost',
         'dbname' => 'magento',
-        'username' => 'root',
-        'password' => '',
+        'username' => 'magento',
+        'password' => 'XxBeQZqIWk',
+        'model' => 'mysql4',
+        'engine' => 'innodb',
+        'initStatements' => 'SET NAMES utf8;',
         'active' => '1',
       ),
     ),
@@ -45,15 +48,14 @@ return array (
     'reflection' => 1,
     'db_ddl' => 1,
     'eav' => 1,
-    'customer_notification' => 1,
-    'full_page' => 1,
     'config_integration' => 1,
     'config_integration_api' => 1,
+    'full_page' => 1,
     'translate' => 1,
     'config_webservice' => 1,
   ),
   'install' => 
   array (
-    'date' => 'Thu, 25 May 2017 16:15:38 +0000',
+    'date' => 'Sun, 09 Jul 2017 07:42:58 +0000',
   ),
 );

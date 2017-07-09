@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/mage/requirejs/text.js
+/var/www/html/magento/lib/web/mage/requirejs/text.js

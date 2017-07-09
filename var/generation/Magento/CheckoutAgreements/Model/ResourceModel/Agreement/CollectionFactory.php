@@ -2,7 +2,8 @@
 namespace Magento\CheckoutAgreements\Model\ResourceModel\Agreement;
 
 /**
- * Factory class for @see \Magento\CheckoutAgreements\Model\ResourceModel\Agreement\Collection
+ * Factory class for @see
+ * \Magento\CheckoutAgreements\Model\ResourceModel\Agreement\Collection
  */
 class CollectionFactory
 {

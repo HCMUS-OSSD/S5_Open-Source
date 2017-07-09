@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/vendor/magento/module-catalog/view/frontend/web/js/catalog-add-to-cart.js
+/var/www/html/magento/vendor/magento/module-catalog/view/frontend/web/js/catalog-add-to-cart.js

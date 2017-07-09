@@ -2,7 +2,8 @@
 namespace Magento\Catalog\Model\ResourceModel\Product\Link;
 
 /**
- * Factory class for @see \Magento\Catalog\Model\ResourceModel\Product\Link\Collection
+ * Factory class for @see
+ * \Magento\Catalog\Model\ResourceModel\Product\Link\Collection
  */
 class CollectionFactory
 {

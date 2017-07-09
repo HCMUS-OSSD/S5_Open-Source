@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
 namespace Magento\Quote\Api;
@@ -21,7 +21,7 @@ interface CartItemRepositoryInterface
     public function getList($cartId);
 
     /**
-     * Add/update the specified cart item.
+     * Adds the specified item to the specified cart.
      *
      * @param \Magento\Quote\Api\Data\CartItemInterface $cartItem The item.
      * @return \Magento\Quote\Api\Data\CartItemInterface Item.

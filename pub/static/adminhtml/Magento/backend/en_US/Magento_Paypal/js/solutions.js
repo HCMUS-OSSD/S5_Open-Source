@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/vendor/magento/module-paypal/view/adminhtml/web/js/solutions.js
+/var/www/html/magento/vendor/magento/module-paypal/view/adminhtml/web/js/solutions.js

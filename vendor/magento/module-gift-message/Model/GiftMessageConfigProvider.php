@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
 namespace Magento\GiftMessage\Model;
@@ -12,7 +12,6 @@ use Magento\Customer\Model\Context as CustomerContext;
 use Magento\Framework\UrlInterface;
 use Magento\Framework\Locale\FormatInterface as LocaleFormat;
 use Magento\Framework\Data\Form\FormKey;
-use Magento\Catalog\Model\Product\Attribute\Source\Boolean;
 
 /**
  * Configuration provider for GiftMessage rendering on "Checkout cart" page.
@@ -106,11 +105,11 @@ class GiftMessageConfigProvider implements ConfigProviderInterface
             $configuration['isOrderLevelGiftOptionsEnabled'] = (bool)$this->isQuoteVirtual() ? false : true;
             $configuration['giftMessage']['orderLevel'] = $orderMessages === null ? true : $orderMessages->getData();
         }
-
-        $itemMessages = $this->getItemLevelGiftMessages();
-        $configuration['isItemLevelGiftOptionsEnabled'] = $itemLevelGiftMessageConfiguration;
-        $configuration['giftMessage']['itemLevel'] = $itemMessages === null ? true : $itemMessages;
-
+        if ($itemLevelGiftMessageConfiguration) {
+            $itemMessages = $this->getItemLevelGiftMessages();
+            $configuration['isItemLevelGiftOptionsEnabled'] = true;
+            $configuration['giftMessage']['itemLevel'] = $itemMessages === null ? true : $itemMessages;
+        }
         $configuration['priceFormat'] = $this->localeFormat->getPriceFormat(
             null,
             $this->checkoutSession->getQuote()->getQuoteCurrencyCode()
@@ -167,27 +166,22 @@ class GiftMessageConfigProvider implements ConfigProviderInterface
     }
 
     /**
-     * Load already specified item level gift messages and related configuration.
+     * Load already specified item level gift messages.
      *
      * @return \Magento\GiftMessage\Api\Data\MessageInterface[]|null
      */
     protected function getItemLevelGiftMessages()
     {
-        $itemLevelConfig = [];
-        $quote = $this->checkoutSession->getQuote();
-        foreach ($quote->getAllVisibleItems() as $item) {
+        $itemMessages = [];
+        $cartId = $this->checkoutSession->getQuoteId();
+        $items = $this->checkoutSession->getQuote()->getAllVisibleItems();
+        foreach ($items as $item) {
             $itemId = $item->getId();
-            $itemLevelConfig[$itemId] = [];
-            $isMessageAvailable = $item->getProduct()->getGiftMessageAvailable();
-            // use gift message product setting if it is available
-            if ($isMessageAvailable !== null && $isMessageAvailable != Boolean::VALUE_USE_CONFIG) {
-                $itemLevelConfig[$itemId]['is_available'] = (bool)$isMessageAvailable;
-            }
-            $message = $this->itemRepository->get($quote->getId(), $itemId);
+            $message = $this->itemRepository->get($cartId, $itemId);
             if ($message) {
-                $itemLevelConfig[$itemId]['message'] = $message->getData();
+                $itemMessages[$itemId] = $message->getData();
             }
         }
-        return count($itemLevelConfig) === 0 ? null : $itemLevelConfig;
+        return count($itemMessages) === 0 ? null : $itemMessages;
     }
 }

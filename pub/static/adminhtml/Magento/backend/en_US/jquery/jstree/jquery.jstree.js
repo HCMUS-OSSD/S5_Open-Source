@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/jquery/jstree/jquery.jstree.js
+/var/www/html/magento/lib/web/jquery/jstree/jquery.jstree.js

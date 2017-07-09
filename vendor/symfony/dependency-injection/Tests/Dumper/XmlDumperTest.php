@@ -11,11 +11,10 @@
 
 namespace Symfony\Component\DependencyInjection\Tests\Dumper;
 
-use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Dumper\XmlDumper;
 
-class XmlDumperTest extends TestCase
+class XmlDumperTest extends \PHPUnit_Framework_TestCase
 {
     protected static $fixturesPath;
 

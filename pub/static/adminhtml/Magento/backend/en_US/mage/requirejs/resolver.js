@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/mage/requirejs/resolver.js
+/var/www/html/magento/lib/web/mage/requirejs/resolver.js

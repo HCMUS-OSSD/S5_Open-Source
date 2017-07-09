@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/knockoutjs/knockout-fast-foreach.js
+/var/www/html/magento/lib/web/knockoutjs/knockout-fast-foreach.js

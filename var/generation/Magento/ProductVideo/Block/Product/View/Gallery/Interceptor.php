@@ -43,19 +43,6 @@ class Interceptor extends \Magento\ProductVideo\Block\Product\View\Gallery imple
     /**
      * {@inheritdoc}
      */
-    public function getOptionsMediaGalleryDataJson()
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getOptionsMediaGalleryDataJson');
-        if (!$pluginInfo) {
-            return parent::getOptionsMediaGalleryDataJson();
-        } else {
-            return $this->___callPlugins('getOptionsMediaGalleryDataJson', func_get_args(), $pluginInfo);
-        }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getGalleryImages()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getGalleryImages');

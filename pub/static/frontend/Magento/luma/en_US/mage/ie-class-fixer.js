@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/mage/ie-class-fixer.js
+/var/www/html/magento/lib/web/mage/ie-class-fixer.js

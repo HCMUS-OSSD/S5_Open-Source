@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/vendor/magento/module-search/view/frontend/web/form-mini.js
+/var/www/html/magento/vendor/magento/module-search/view/frontend/web/form-mini.js

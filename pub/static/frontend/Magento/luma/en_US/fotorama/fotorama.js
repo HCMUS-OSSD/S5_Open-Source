@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/fotorama/fotorama.js
+/var/www/html/magento/lib/web/fotorama/fotorama.js

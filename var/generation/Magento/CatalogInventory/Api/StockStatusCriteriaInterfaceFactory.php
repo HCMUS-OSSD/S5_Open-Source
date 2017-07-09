@@ -2,7 +2,8 @@
 namespace Magento\CatalogInventory\Api;
 
 /**
- * Factory class for @see \Magento\CatalogInventory\Api\StockStatusCriteriaInterface
+ * Factory class for @see
+ * \Magento\CatalogInventory\Api\StockStatusCriteriaInterface
  */
 class StockStatusCriteriaInterfaceFactory
 {

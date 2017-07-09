@@ -2,7 +2,8 @@
 namespace Magento\CatalogSearch\Model\Adapter\Mysql\Aggregation\DataProvider;
 
 /**
- * Interceptor class for @see \Magento\CatalogSearch\Model\Adapter\Mysql\Aggregation\DataProvider
+ * Interceptor class for @see
+ * \Magento\CatalogSearch\Model\Adapter\Mysql\Aggregation\DataProvider
  */
 class Interceptor extends \Magento\CatalogSearch\Model\Adapter\Mysql\Aggregation\DataProvider implements \Magento\Framework\Interception\InterceptorInterface
 {

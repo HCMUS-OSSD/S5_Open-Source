@@ -2,7 +2,8 @@
 namespace Magento\Quote\Model\ResourceModel\Quote\Payment;
 
 /**
- * Factory class for @see \Magento\Quote\Model\ResourceModel\Quote\Payment\Collection
+ * Factory class for @see
+ * \Magento\Quote\Model\ResourceModel\Quote\Payment\Collection
  */
 class CollectionFactory
 {

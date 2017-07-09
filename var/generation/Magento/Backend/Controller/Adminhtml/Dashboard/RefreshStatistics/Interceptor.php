@@ -2,7 +2,8 @@
 namespace Magento\Backend\Controller\Adminhtml\Dashboard\RefreshStatistics;
 
 /**
- * Interceptor class for @see \Magento\Backend\Controller\Adminhtml\Dashboard\RefreshStatistics
+ * Interceptor class for @see
+ * \Magento\Backend\Controller\Adminhtml\Dashboard\RefreshStatistics
  */
 class Interceptor extends \Magento\Backend\Controller\Adminhtml\Dashboard\RefreshStatistics implements \Magento\Framework\Interception\InterceptorInterface
 {

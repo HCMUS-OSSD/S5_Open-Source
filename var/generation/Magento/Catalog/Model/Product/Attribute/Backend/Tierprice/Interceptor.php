@@ -2,7 +2,8 @@
 namespace Magento\Catalog\Model\Product\Attribute\Backend\Tierprice;
 
 /**
- * Interceptor class for @see \Magento\Catalog\Model\Product\Attribute\Backend\Tierprice
+ * Interceptor class for @see
+ * \Magento\Catalog\Model\Product\Attribute\Backend\Tierprice
  */
 class Interceptor extends \Magento\Catalog\Model\Product\Attribute\Backend\Tierprice implements \Magento\Framework\Interception\InterceptorInterface
 {

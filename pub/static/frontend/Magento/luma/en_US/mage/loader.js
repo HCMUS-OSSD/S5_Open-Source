@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/mage/loader.js
+/var/www/html/magento/lib/web/mage/loader.js

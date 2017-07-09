@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/mage/backend/menu.js
+/var/www/html/magento/lib/web/mage/backend/menu.js

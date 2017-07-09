@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/vendor/magento/theme-adminhtml-backend/web/js/theme.js
+/var/www/html/magento/vendor/magento/theme-adminhtml-backend/web/js/theme.js

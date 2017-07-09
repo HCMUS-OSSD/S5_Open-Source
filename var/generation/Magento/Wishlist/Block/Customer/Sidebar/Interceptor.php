@@ -30,19 +30,6 @@ class Interceptor extends \Magento\Wishlist\Block\Customer\Sidebar implements \M
     /**
      * {@inheritdoc}
      */
-    public function getProductPriceHtml(\Magento\Catalog\Model\Product $product, $priceType, $renderZone = 'item_list', array $arguments = array())
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getProductPriceHtml');
-        if (!$pluginInfo) {
-            return parent::getProductPriceHtml($product, $priceType, $renderZone, $arguments);
-        } else {
-            return $this->___callPlugins('getProductPriceHtml', func_get_args(), $pluginInfo);
-        }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getWishlistItems()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getWishlistItems');
@@ -479,6 +466,19 @@ class Interceptor extends \Magento\Wishlist\Block\Customer\Sidebar implements \M
             return parent::getProductPrice($product);
         } else {
             return $this->___callPlugins('getProductPrice', func_get_args(), $pluginInfo);
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getProductPriceHtml(\Magento\Catalog\Model\Product $product, $priceType, $renderZone = 'item_list', array $arguments = array())
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getProductPriceHtml');
+        if (!$pluginInfo) {
+            return parent::getProductPriceHtml($product, $priceType, $renderZone, $arguments);
+        } else {
+            return $this->___callPlugins('getProductPriceHtml', func_get_args(), $pluginInfo);
         }
     }
 

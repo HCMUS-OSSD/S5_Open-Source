@@ -2,7 +2,8 @@
 namespace Magento\Downloadable\Model\ResourceModel\Sample;
 
 /**
- * Factory class for @see \Magento\Downloadable\Model\ResourceModel\Sample\Collection
+ * Factory class for @see
+ * \Magento\Downloadable\Model\ResourceModel\Sample\Collection
  */
 class CollectionFactory
 {

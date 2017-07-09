@@ -64,14 +64,6 @@ class ProjectServiceContainer extends Container
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function isFrozen()
-    {
-        return true;
-    }
-
-    /**
      * Gets the 'bar' service.
      *
      * This service is shared.
@@ -197,11 +189,11 @@ class ProjectServiceContainer extends Container
 
         $this->services['foo'] = $instance = \Bar\FooClass::getInstance('foo', $a, array('bar' => 'foo is bar', 'foobar' => 'bar'), true, $this);
 
+        $instance->setBar($this->get('bar'));
+        $instance->initialize();
         $instance->foo = 'bar';
         $instance->moo = $a;
         $instance->qux = array('bar' => 'foo is bar', 'foobar' => 'bar');
-        $instance->setBar($this->get('bar'));
-        $instance->initialize();
         sc_configure($instance);
 
         return $instance;
@@ -248,8 +240,8 @@ class ProjectServiceContainer extends Container
 
         $this->services['foo_with_inline'] = $instance = new \Foo();
 
-        $a->pub = 'pub';
         $a->setBaz($this->get('baz'));
+        $a->pub = 'pub';
 
         $instance->setBar($a);
 
@@ -272,7 +264,7 @@ class ProjectServiceContainer extends Container
 
         $instance->setBar($this->get('foo'));
         $instance->setBar(NULL);
-        $instance->setBar(($this->get("foo")->foo() . (($this->hasParameter("foo")) ? ($this->getParameter("foo")) : ("default"))));
+        $instance->setBar(($this->get("foo")->foo() . (($this->hasparameter("foo")) ? ($this->getParameter("foo")) : ("default"))));
 
         return $instance;
     }

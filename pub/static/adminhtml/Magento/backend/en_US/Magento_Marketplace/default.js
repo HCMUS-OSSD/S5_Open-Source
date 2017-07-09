@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/vendor/magento/module-marketplace/view/adminhtml/web/default.js
+/var/www/html/magento/vendor/magento/module-marketplace/view/adminhtml/web/default.js

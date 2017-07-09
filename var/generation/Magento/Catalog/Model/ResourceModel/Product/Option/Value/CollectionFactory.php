@@ -2,7 +2,8 @@
 namespace Magento\Catalog\Model\ResourceModel\Product\Option\Value;
 
 /**
- * Factory class for @see \Magento\Catalog\Model\ResourceModel\Product\Option\Value\Collection
+ * Factory class for @see
+ * \Magento\Catalog\Model\ResourceModel\Product\Option\Value\Collection
  */
 class CollectionFactory
 {

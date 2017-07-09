@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/vendor/magento/module-admin-notification/view/adminhtml/web/toolbar_entry.js
+/var/www/html/magento/vendor/magento/module-admin-notification/view/adminhtml/web/toolbar_entry.js

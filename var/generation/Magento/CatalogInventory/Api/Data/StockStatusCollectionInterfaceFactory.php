@@ -2,7 +2,8 @@
 namespace Magento\CatalogInventory\Api\Data;
 
 /**
- * Factory class for @see \Magento\CatalogInventory\Api\Data\StockStatusCollectionInterface
+ * Factory class for @see
+ * \Magento\CatalogInventory\Api\Data\StockStatusCollectionInterface
  */
 class StockStatusCollectionInterfaceFactory
 {

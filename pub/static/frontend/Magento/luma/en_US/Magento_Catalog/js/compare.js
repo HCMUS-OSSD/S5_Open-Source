@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/vendor/magento/module-catalog/view/frontend/web/js/compare.js
+/var/www/html/magento/vendor/magento/module-catalog/view/frontend/web/js/compare.js

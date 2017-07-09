@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/vendor/magento/module-cookie/view/frontend/web/js/require-cookie.js
+/var/www/html/magento/vendor/magento/module-cookie/view/frontend/web/js/require-cookie.js

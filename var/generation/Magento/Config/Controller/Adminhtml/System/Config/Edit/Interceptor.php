@@ -2,7 +2,8 @@
 namespace Magento\Config\Controller\Adminhtml\System\Config\Edit;
 
 /**
- * Interceptor class for @see \Magento\Config\Controller\Adminhtml\System\Config\Edit
+ * Interceptor class for @see
+ * \Magento\Config\Controller\Adminhtml\System\Config\Edit
  */
 class Interceptor extends \Magento\Config\Controller\Adminhtml\System\Config\Edit implements \Magento\Framework\Interception\InterceptorInterface
 {

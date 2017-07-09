@@ -11,10 +11,9 @@
 
 namespace Symfony\Component\Yaml\Tests;
 
-use PHPUnit\Framework\TestCase;
 use Symfony\Component\Yaml\Inline;
 
-class InlineTest extends TestCase
+class InlineTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @dataProvider getTestsForParse
@@ -448,35 +447,5 @@ class InlineTest extends TestCase
 
             array('{ foo: { bar: { 1: 2, baz: 3 } } }', array('foo' => array('bar' => array(1 => 2, 'baz' => 3)))),
         );
-    }
-
-    /**
-     * @expectedException \Symfony\Component\Yaml\Exception\ParseException
-     * @expectedExceptionMessage Malformed inline YAML string: {this, is not, supported}.
-     */
-    public function testNotSupportedMissingValue()
-    {
-        Inline::parse('{this, is not, supported}');
-    }
-
-    public function testVeryLongQuotedStrings()
-    {
-        $longStringWithQuotes = str_repeat("x\r\n\\\"x\"x", 1000);
-
-        $yamlString = Inline::dump(array('longStringWithQuotes' => $longStringWithQuotes));
-        $arrayFromYaml = Inline::parse($yamlString);
-
-        $this->assertEquals($longStringWithQuotes, $arrayFromYaml['longStringWithQuotes']);
-    }
-
-    public function testBooleanMappingKeysAreConvertedToStrings()
-    {
-        $this->assertSame(array('false' => 'foo'), Inline::parse('{false: foo}'));
-        $this->assertSame(array('true' => 'foo'), Inline::parse('{true: foo}'));
-    }
-
-    public function testTheEmptyStringIsAValidMappingKey()
-    {
-        $this->assertSame(array('' => 'foo'), Inline::parse('{ "": foo }'));
     }
 }

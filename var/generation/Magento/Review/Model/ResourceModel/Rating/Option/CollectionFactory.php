@@ -2,7 +2,8 @@
 namespace Magento\Review\Model\ResourceModel\Rating\Option;
 
 /**
- * Factory class for @see \Magento\Review\Model\ResourceModel\Rating\Option\Collection
+ * Factory class for @see
+ * \Magento\Review\Model\ResourceModel\Rating\Option\Collection
  */
 class CollectionFactory
 {

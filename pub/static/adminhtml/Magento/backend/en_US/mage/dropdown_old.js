@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/mage/dropdown_old.js
+/var/www/html/magento/lib/web/mage/dropdown_old.js

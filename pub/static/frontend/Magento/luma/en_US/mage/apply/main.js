@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/mage/apply/main.js
+/var/www/html/magento/lib/web/mage/apply/main.js

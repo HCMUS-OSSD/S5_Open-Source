@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/vendor/magento/module-ui/view/base/web/js/modal/alert.js
+/var/www/html/magento/vendor/magento/module-ui/view/base/web/js/modal/alert.js

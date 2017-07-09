@@ -2,7 +2,8 @@
 namespace Magento\Catalog\Model\ResourceModel\Product\Compare\Item;
 
 /**
- * Factory class for @see \Magento\Catalog\Model\ResourceModel\Product\Compare\Item\Collection
+ * Factory class for @see
+ * \Magento\Catalog\Model\ResourceModel\Product\Compare\Item\Collection
  */
 class CollectionFactory
 {

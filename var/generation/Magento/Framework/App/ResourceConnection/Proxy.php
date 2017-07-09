@@ -53,7 +53,7 @@ class Proxy extends \Magento\Framework\App\ResourceConnection implements \Magent
      */
     public function __sleep()
     {
-        return ['_subject', '_isShared', '_instanceName'];
+        return array('_subject', '_isShared');
     }
 
     /**
@@ -98,14 +98,6 @@ class Proxy extends \Magento\Framework\App\ResourceConnection implements \Magent
     /**
      * {@inheritdoc}
      */
-    public function closeConnection($resourceName = 'default')
-    {
-        return $this->_getSubject()->closeConnection($resourceName);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getConnectionByName($connectionName)
     {
         return $this->_getSubject()->getConnectionByName($connectionName);
@@ -117,14 +109,6 @@ class Proxy extends \Magento\Framework\App\ResourceConnection implements \Magent
     public function getTableName($modelEntity, $connectionName = 'default')
     {
         return $this->_getSubject()->getTableName($modelEntity, $connectionName);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getTablePlaceholder($tableName)
-    {
-        return $this->_getSubject()->getTablePlaceholder($tableName);
     }
 
     /**

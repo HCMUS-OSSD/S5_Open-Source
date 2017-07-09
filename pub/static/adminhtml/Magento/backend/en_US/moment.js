@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/moment.js
+/var/www/html/magento/lib/web/moment.js

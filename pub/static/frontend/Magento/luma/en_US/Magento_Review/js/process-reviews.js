@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/vendor/magento/module-review/view/frontend/web/js/process-reviews.js
+/var/www/html/magento/vendor/magento/module-review/view/frontend/web/js/process-reviews.js

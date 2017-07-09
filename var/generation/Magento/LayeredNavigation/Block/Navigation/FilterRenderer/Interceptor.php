@@ -2,7 +2,8 @@
 namespace Magento\LayeredNavigation\Block\Navigation\FilterRenderer;
 
 /**
- * Interceptor class for @see \Magento\LayeredNavigation\Block\Navigation\FilterRenderer
+ * Interceptor class for @see
+ * \Magento\LayeredNavigation\Block\Navigation\FilterRenderer
  */
 class Interceptor extends \Magento\LayeredNavigation\Block\Navigation\FilterRenderer implements \Magento\Framework\Interception\InterceptorInterface
 {

@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/vendor/magento/module-theme/view/frontend/web/js/view/messages.js
+/var/www/html/magento/vendor/magento/module-theme/view/frontend/web/js/view/messages.js

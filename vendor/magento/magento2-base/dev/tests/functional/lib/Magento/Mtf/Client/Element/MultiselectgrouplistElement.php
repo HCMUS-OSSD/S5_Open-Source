@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
 
@@ -77,13 +77,6 @@ class MultiselectgrouplistElement extends MultiselectElement
     protected $childOptionByNumber = './/optgroup[%d]/option[%d]';
 
     /**
-     * Locator search for option by data-text attribute
-     *
-     * @var string
-     */
-    protected $uiOptionText = './/option[@data-title="%s"]';
-
-    /**
      * Locator for search parent option
      *
      * @var string
@@ -120,19 +113,6 @@ class MultiselectgrouplistElement extends MultiselectElement
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function deselectAll()
-    {
-        $options = $this->getSelectedOptions();
-
-        /** @var SimpleElement $option */
-        foreach ($options as $option) {
-            $option->click();
-        }
-    }
-
-    /**
      * Select option
      *
      * @param string $option
@@ -141,14 +121,6 @@ class MultiselectgrouplistElement extends MultiselectElement
      */
     protected function selectOption($option)
     {
-        $optionElement = $this->find(sprintf($this->uiOptionText, $option), Locator::SELECTOR_XPATH);
-        if ($optionElement->isVisible()) {
-            if (!$optionElement->isSelected()) {
-                $optionElement->click();
-            }
-            return;
-        }
-
         $isOptgroup = false;
         $optgroupIndent = '';
         $values = explode('/', $option);

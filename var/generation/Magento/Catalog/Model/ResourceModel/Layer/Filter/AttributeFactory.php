@@ -2,7 +2,8 @@
 namespace Magento\Catalog\Model\ResourceModel\Layer\Filter;
 
 /**
- * Factory class for @see \Magento\Catalog\Model\ResourceModel\Layer\Filter\Attribute
+ * Factory class for @see
+ * \Magento\Catalog\Model\ResourceModel\Layer\Filter\Attribute
  */
 class AttributeFactory
 {

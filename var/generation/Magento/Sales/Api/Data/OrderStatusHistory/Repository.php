@@ -39,9 +39,12 @@ class Repository implements \Magento\Sales\Api\OrderStatusHistoryRepositoryInter
     /**
      * Repository constructor
      *
-     * @param \Magento\Sales\Api\Data\OrderStatusHistoryInterface $orderStatusHistoryInterfacePersistor
-     * @param \Magento\Sales\Api\Data\OrderStatusHistorySearchResultInterfaceFactory $orderStatusHistoryInterfaceSearchResultFactory
-     * @param \Magento\Framework\Api\ExtensionAttribute\JoinProcessorInterface $extensionAttributesJoinProcessor
+     * @param \Magento\Sales\Api\Data\OrderStatusHistoryInterface
+     * $orderStatusHistoryInterfacePersistor
+     * @param \Magento\Sales\Api\Data\OrderStatusHistorySearchResultInterfaceFactory
+     * $orderStatusHistoryInterfaceSearchResultFactory
+     * @param \Magento\Framework\Api\ExtensionAttribute\JoinProcessorInterface
+     * $extensionAttributesJoinProcessor
      */
     public function __construct(\Magento\Sales\Api\Data\OrderStatusHistoryInterfacePersistor $orderStatusHistoryInterfacePersistor, \Magento\Sales\Api\Data\OrderStatusHistorySearchResultInterfaceFactory $orderStatusHistoryInterfaceSearchResultFactory, \Magento\Framework\Api\ExtensionAttribute\JoinProcessorInterface $extensionAttributesJoinProcessor)
     {

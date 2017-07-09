@@ -2,7 +2,8 @@
 namespace Magento\ConfigurableProduct\Model\ResourceModel\Product\Type\Configurable\Product;
 
 /**
- * Factory class for @see \Magento\ConfigurableProduct\Model\ResourceModel\Product\Type\Configurable\Product\Collection
+ * Factory class for @see
+ * \Magento\ConfigurableProduct\Model\ResourceModel\Product\Type\Configurable\Product\Collection
  */
 class CollectionFactory
 {
@@ -36,7 +37,8 @@ class CollectionFactory
      * Create class instance with specified parameters
      *
      * @param array $data
-     * @return \Magento\ConfigurableProduct\Model\ResourceModel\Product\Type\Configurable\Product\Collection
+     * @return
+     * \Magento\ConfigurableProduct\Model\ResourceModel\Product\Type\Configurable\Product\Collection
      */
     public function create(array $data = array())
     {

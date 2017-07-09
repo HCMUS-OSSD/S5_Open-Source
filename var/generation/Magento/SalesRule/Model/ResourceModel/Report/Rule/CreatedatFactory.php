@@ -2,7 +2,8 @@
 namespace Magento\SalesRule\Model\ResourceModel\Report\Rule;
 
 /**
- * Factory class for @see \Magento\SalesRule\Model\ResourceModel\Report\Rule\Createdat
+ * Factory class for @see
+ * \Magento\SalesRule\Model\ResourceModel\Report\Rule\Createdat
  */
 class CreatedatFactory
 {

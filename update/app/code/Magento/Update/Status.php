@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
 
@@ -73,7 +73,7 @@ class Status
         $this->updateErrorFlagFilePath = $updateErrorFlagFilePath
             ? $updateErrorFlagFilePath
             : MAGENTO_BP . '/var/.update_error.flag';
-        $updateLoggerFactory = new UpdateLoggerFactory($this->logFilePath);
+        $updateLoggerFactory = new UpdateLoggerFactory();
         $this->logger = $updateLoggerFactory->create();
     }
 

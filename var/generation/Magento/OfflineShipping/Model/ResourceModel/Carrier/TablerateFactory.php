@@ -2,7 +2,8 @@
 namespace Magento\OfflineShipping\Model\ResourceModel\Carrier;
 
 /**
- * Factory class for @see \Magento\OfflineShipping\Model\ResourceModel\Carrier\Tablerate
+ * Factory class for @see
+ * \Magento\OfflineShipping\Model\ResourceModel\Carrier\Tablerate
  */
 class TablerateFactory
 {

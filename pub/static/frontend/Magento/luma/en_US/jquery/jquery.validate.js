@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/jquery/jquery.validate.js
+/var/www/html/magento/lib/web/jquery/jquery.validate.js

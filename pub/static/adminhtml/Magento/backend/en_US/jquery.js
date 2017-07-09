@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/jquery.js
+/var/www/html/magento/lib/web/jquery.js

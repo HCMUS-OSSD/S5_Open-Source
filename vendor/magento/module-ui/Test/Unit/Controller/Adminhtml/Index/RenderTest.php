@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
 namespace Magento\Ui\Test\Unit\Controller\Adminhtml\Index;
@@ -32,7 +32,7 @@ class RenderTest extends \PHPUnit_Framework_TestCase
      */
     protected $uiFactoryMock;
 
-    protected function setUp()
+    public function setUp()
     {
         $this->requestMock = $this->getMockBuilder('Magento\Framework\App\Request\Http')
             ->disableOriginalConstructor()

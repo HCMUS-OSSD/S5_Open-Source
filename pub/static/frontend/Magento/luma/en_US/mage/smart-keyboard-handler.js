@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/mage/smart-keyboard-handler.js
+/var/www/html/magento/lib/web/mage/smart-keyboard-handler.js

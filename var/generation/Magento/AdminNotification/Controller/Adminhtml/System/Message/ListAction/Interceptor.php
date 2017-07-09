@@ -2,7 +2,8 @@
 namespace Magento\AdminNotification\Controller\Adminhtml\System\Message\ListAction;
 
 /**
- * Interceptor class for @see \Magento\AdminNotification\Controller\Adminhtml\System\Message\ListAction
+ * Interceptor class for @see
+ * \Magento\AdminNotification\Controller\Adminhtml\System\Message\ListAction
  */
 class Interceptor extends \Magento\AdminNotification\Controller\Adminhtml\System\Message\ListAction implements \Magento\Framework\Interception\InterceptorInterface
 {

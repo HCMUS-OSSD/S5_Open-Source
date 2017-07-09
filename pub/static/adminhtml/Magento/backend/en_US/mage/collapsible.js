@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/mage/collapsible.js
+/var/www/html/magento/lib/web/mage/collapsible.js

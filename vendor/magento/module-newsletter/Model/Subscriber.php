@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
 namespace Magento\Newsletter\Model;
@@ -399,6 +399,11 @@ class Subscriber extends \Magento\Framework\Model\AbstractModel
             $this->setSubscriberConfirmCode($this->randomSequence());
         }
 
+        $sendConfirmationEmail = true;
+        if ($this->getStatus() == self::STATUS_SUBSCRIBED && !$this->getCustomerId()) {
+            $sendConfirmationEmail = false;
+        }
+
         $isConfirmNeed = $this->_scopeConfig->getValue(
             self::XML_PATH_CONFIRMATION_FLAG,
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE
@@ -442,14 +447,16 @@ class Subscriber extends \Magento\Framework\Model\AbstractModel
         $this->setStatusChanged(true);
 
         try {
-            $this->save();
-            if ($isConfirmNeed === true
-                && $isOwnSubscribes === false
-            ) {
-                $this->sendConfirmationRequestEmail();
-            } else {
-                $this->sendConfirmationSuccessEmail();
+            if ($sendConfirmationEmail === true) {
+                if ($isConfirmNeed === true
+                    && $isOwnSubscribes === false
+                ) {
+                    $this->sendConfirmationRequestEmail();
+                } else {
+                    $this->sendConfirmationSuccessEmail();
+                }
             }
+            $this->save();
             return $this->getStatus();
         } catch (\Exception $e) {
             throw new \Exception($e->getMessage());

@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/jquery/fileUploader/jquery.fileupload-fp.js
+/var/www/html/magento/lib/web/jquery/fileUploader/jquery.fileupload-fp.js

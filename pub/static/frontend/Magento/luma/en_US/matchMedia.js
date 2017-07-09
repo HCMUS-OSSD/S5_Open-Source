@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/matchMedia.js
+/var/www/html/magento/lib/web/matchMedia.js

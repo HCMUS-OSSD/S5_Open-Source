@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
 
@@ -8,10 +8,6 @@
 
 namespace Magento\Framework\Stdlib\DateTime;
 
-/**
- * Timezone Interface
- * @api
- */
 interface TimezoneInterface
 {
     /**
@@ -138,11 +134,4 @@ interface TimezoneInterface
         $timezone = null,
         $pattern = null
     );
-
-    /**
-     * @param string|\DateTimeInterface $date
-     * @param string $format
-     * @return string
-     */
-    public function convertConfigTimeToUtc($date, $format = 'Y-m-d H:i:s');
 }

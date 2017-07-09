@@ -1,1 +1,1 @@
-/opt/lampp/htdocs/opensource/lib/web/mage/utils/compare.js
+/var/www/html/magento/lib/web/mage/utils/compare.js
